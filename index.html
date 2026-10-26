@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Food Pantry Visit Planner</title>
+  <style>
+    :root{font:17px/1.5 system-ui,sans-serif;color:#172b24;background:#f4f8f5}
+    body{margin:0;padding:1.5rem}main{max-width:760px;margin:auto;background:white;padding:2rem;border-radius:16px;box-shadow:0 8px 30px #17472a1a}
+    h1,h2{line-height:1.2}h1{font-size:2.2rem;margin:.25rem 0}h2{font-size:1.25rem;margin-top:2rem}
+    .eyebrow{color:#286849;font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.8rem}
+    .intro,.note{color:#405449}.tip{border-left:4px solid #2f7a54;background:#ecf6ef;padding:1rem;margin:1rem 0}
+    select,button{font:inherit;padding:.7rem;border-radius:8px}select{display:block;width:100%;border:1px solid #83978a;margin:.5rem 0}button{background:#225f42;color:white;border:0;cursor:pointer;margin-top:1rem}
+    label.check{display:flex;gap:.75rem;align-items:flex-start;padding:.65rem 0;border-bottom:1px solid #e4ebe5}input[type=checkbox]{width:1.25rem;height:1.25rem;flex:none;margin-top:.2rem}
+    a{color:#17553b}a:focus,button:focus,select:focus{outline:3px solid #e4a82c;outline-offset:2px}
+    footer{border-top:1px solid #dce8df;margin-top:2rem;padding-top:1rem;font-size:.9rem}
+    @media print{body{padding:0;background:white}main{box-shadow:none;padding:0;max-width:none}button,select{display:none}.tip{border:1px solid #aaa;background:white}a{color:inherit}}
+  </style>
+</head>
+<body><main>
+  <p class="eyebrow">Free printable worksheet</p>
+  <h1>Food Pantry Visit Planner</h1>
+  <p class="intro">Confirm the right place, time, and access rules before you travel. This page does not collect or save information.</p>
+  <label for="service"><strong>Which kind of food help are you visiting?</strong></label>
+  <select id="service"><option value="pantry">Neighborhood food pantry</option><option value="mobile">Mobile food distribution</option><option value="meal">Community meal program</option><option value="bank">Regional food bank</option></select>
+  <p class="tip" id="tip">Ask for the public grocery pickup hours. Office or donation hours may be different.</p>
+  <h2>Questions to confirm</h2>
+  <label class="check"><input type="checkbox"> <span>I found the exact public pickup or meal address, not just an office or warehouse.</span></label>
+  <label class="check"><input type="checkbox"> <span>I checked the current date, service window, and latest arrival time.</span></label>
+  <label class="check"><input type="checkbox"> <span>I checked for a holiday, weather, or last-minute cancellation notice.</span></label>
+  <label class="check"><input type="checkbox"> <span>I asked about service area, appointments, registration, referral, or ID requirements.</span></label>
+  <label class="check"><input type="checkbox"> <span>I know whether I need to walk in, arrive by car, or use a particular entrance.</span></label>
+  <label class="check"><input type="checkbox"> <span>I have a backup food-help option if this location cannot serve me today.</span></label>
+  <p class="note">Requirements vary by provider. If a detail is unclear, use the provider's current page or contact them directly. Do not put case numbers or benefit details into this worksheet.</p>
+  <button type="button" onclick="window.print()">Print or save as PDF</button>
+  <footer><strong>Find a provider:</strong> <a href="https://www.feedingamerica.org/find-your-local-foodbank">Feeding America locator</a> · <a href="https://211.org/">United Way 211</a><br>
+  <strong>Longer independent guide:</strong> <a href="https://foodstampsoffice.org/food-bank/">Food Stamps Office food bank guide</a>. Disclosure: the maker of this worksheet contributes to FoodStampsOffice.org. It is not a government agency or food provider.</footer>
+</main>
+<script>
+  const tips={pantry:'Ask for the public grocery pickup hours. Office or donation hours may be different.',mobile:'Confirm the exact event date, temporary address, arrival window, and cancellation updates.',meal:'Confirm the meal serving time and last entry time, which may differ from office hours.',bank:'A regional food bank may supply partner pantries without serving visitors at its warehouse. Ask for the nearest public distribution site.'};
+  document.getElementById('service').addEventListener('change',function(){document.getElementById('tip').textContent=tips[this.value]});
+</script>
+</body></html>
